@@ -22,7 +22,16 @@ Guidelines for writing AI papers following TRIPOD+AI reporting standards.
 - Visual presentation best practices
 - Transparency requirements
 
-### 3. CIHR Grant Writing (`CIHR_RCT_WRITING.md`)
+### 3. Manuscript Review (`manuscript-review.md`)
+Section-by-section checklist for reviewing medical AI manuscripts.
+
+**Includes:**
+- Background, Methods, Results, Tables, Discussion, and Abstract checklists
+- Success criteria for each section
+- Numerical formatting rules
+- Forbidden patterns reference
+
+### 4. CIHR Grant Writing (`CIHR_RCT_WRITING.md`)
 Section-by-section guide for writing CIHR Project Grant applications.
 
 **Includes:**
@@ -50,6 +59,7 @@ mkdir -p ~/.claude/commands
 ```bash
 cp protocol-writing.md ~/.claude/commands/protocol-writing.md
 cp manuscript-writing-tripod.md ~/.claude/commands/manuscript-writing-tripod.md
+cp manuscript-review.md ~/.claude/commands/manuscript-review.md
 cp CIHR_RCT_WRITING.md ~/.claude/commands/cihr-grant-writing.md
 ```
 
@@ -70,6 +80,12 @@ description: Guide for writing AI paper results following TRIPOD+AI guidelines, 
 
 sed -i '' '1i\
 ---\
+description: Section-by-section checklist for reviewing medical AI manuscripts with success criteria for Background, Methods, Results, Tables, Discussion, and Abstract\
+---\
+' ~/.claude/commands/manuscript-review.md
+
+sed -i '' '1i\
+---\
 description: Section-by-section guide for writing CIHR Project Grant applications, covering RCTs, AI/technology, observational studies, with scoring rubrics and templates\
 ---\
 ' ~/.claude/commands/cihr-grant-writing.md
@@ -80,6 +96,7 @@ description: Section-by-section guide for writing CIHR Project Grant application
 ```
 /protocol-writing
 /manuscript-writing-tripod
+/manuscript-review
 /cihr-grant-writing
 ```
 
@@ -101,6 +118,7 @@ Claude Desktop uses **Projects** to store reusable instructions and knowledge.
 - Paste the full contents of each `.md` file as a separate knowledge entry:
   - `protocol-writing.md`
   - `manuscript-writing-tripod.md`
+  - `manuscript-review.md`
   - `CIHR_RCT_WRITING.md`
 
 **4.** (Optional) Add project instructions:
@@ -112,6 +130,7 @@ You are an academic writing assistant specializing in medical AI research.
 When the user asks you to write or review a protocol, manuscript, or grant,
 use the relevant skill from the project knowledge to guide your output.
 Always follow the structure, style guidelines, and checklists provided.
+For manuscript reviews, use the section-by-section checklist approach.
 ```
 
 **5.** Start a new conversation within that project to use the skills.
@@ -132,14 +151,15 @@ Always follow the structure, style guidelines, and checklists provided.
 
 ```
 You are an academic writing assistant specializing in medical AI research.
-You have access to three writing skills as knowledge files.
+You have access to four writing skills as knowledge files.
 When the user asks you to write or review a protocol, use "protocol-writing.md".
-When the user asks you to write or review a manuscript, use "manuscript-writing-tripod.md".
+When the user asks you to write a manuscript, use "manuscript-writing-tripod.md".
+When the user asks you to review a manuscript, use "manuscript-review.md".
 When the user asks you to write or review a CIHR grant, use "cihr-grant-writing.md".
 Always follow the structure, style guidelines, scoring rubrics, and checklists provided in each skill.
 ```
 
-**3.** Upload the 3 `.md` files under the **"Knowledge"** section.
+**3.** Upload the 4 `.md` files under the **"Knowledge"** section.
 
 **4.** Save and use the GPT.
 
@@ -172,11 +192,12 @@ If you don't need persistence, simply paste the contents of the relevant `.md` f
 
 **3.** Create one page per skill:
 
-| Name | Category | Tags |
-|------|----------|------|
-| Protocol Writing | Protocol | Diagnostic AI, Validation |
-| TRIPOD-AI Manuscript Writing | Manuscript | TRIPOD-AI, Reporting |
-| CIHR Grant Writing | Grant | CIHR, RCT, AI/Technology |
+|| Name | Category | Tags |
+||------|----------|------|
+|| Protocol Writing | Protocol | Diagnostic AI, Validation |
+|| TRIPOD-AI Manuscript Writing | Manuscript | TRIPOD-AI, Reporting |
+|| Manuscript Review | Review | Checklist, Quality Control |
+|| CIHR Grant Writing | Grant | CIHR, RCT, AI/Technology |
 
 **4.** In each page, paste the full contents of the corresponding `.md` file. Notion will automatically render the markdown headings, tables, checklists, and code blocks.
 
@@ -184,10 +205,11 @@ If you don't need persistence, simply paste the contents of the relevant `.md` f
 
 **1.** Create a new Notion page called "AI Writing Skills".
 
-**2.** Add 3 toggle headings (type `/toggle heading` or `/toggle`):
+**2.** Add 4 toggle headings (type `/toggle heading` or `/toggle`):
 
 - **Protocol Writing** -- paste contents of `protocol-writing.md`
 - **TRIPOD-AI Manuscript Writing** -- paste contents of `manuscript-writing-tripod.md`
+- **Manuscript Review** -- paste contents of `manuscript-review.md`
 - **CIHR Grant Writing** -- paste contents of `CIHR_RCT_WRITING.md`
 
 Each toggle collapses the full skill so you can expand only what you need.
@@ -208,11 +230,12 @@ Notion AI will use the linked page as context.
 
 ## Quick Reference
 
-| Skill | File | Claude Code | Claude Desktop | ChatGPT | Notion |
-|-------|------|-------------|----------------|---------|--------|
-| Protocol Writing | `protocol-writing.md` | `/protocol-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
-| TRIPOD-AI Manuscript | `manuscript-writing-tripod.md` | `/manuscript-writing-tripod` | Project knowledge | GPT knowledge file | Database page or toggle |
-| CIHR Grant Writing | `CIHR_RCT_WRITING.md` | `/cihr-grant-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
+|| Skill | File | Claude Code | Claude Desktop | ChatGPT | Notion |
+||-------|------|-------------|----------------|---------|--------|
+|| Protocol Writing | `protocol-writing.md` | `/protocol-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
+|| TRIPOD-AI Manuscript | `manuscript-writing-tripod.md` | `/manuscript-writing-tripod` | Project knowledge | GPT knowledge file | Database page or toggle |
+|| Manuscript Review | `manuscript-review.md` | `/manuscript-review` | Project knowledge | GPT knowledge file | Database page or toggle |
+|| CIHR Grant Writing | `CIHR_RCT_WRITING.md` | `/cihr-grant-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
 
 ---
 
@@ -222,4 +245,4 @@ MIT License - HeartWise.AI
 
 ## Version
 
-v1.1.0 - Added CIHR Grant Writing skill and multi-platform installation instructions
+v1.2.0 - Added Manuscript Review skill with section-by-section checklists
