@@ -1,4 +1,9 @@
-# SKILL: Research Protocol Writing
+---
+name: protocol-writing
+description: Guide for writing high-quality clinical research protocols for AI-based diagnostic studies, validation trials, and retrospective analyses. Use when drafting or reviewing a research protocol for AI in medicine.
+---
+
+# Research Protocol Writing
 
 ## Overview
 This skill guides the generation of high-quality clinical research protocols for AI-based diagnostic studies, validation trials, and retrospective analyses.

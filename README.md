@@ -1,10 +1,10 @@
 # AI Writing Skills
 
-A collection of prompts and guidelines for AI-assisted academic and research writing in medical AI.
+A collection of skills for AI-assisted academic and research writing in medical AI, following the [Agent Skills specification](https://agentskills.io/specification).
 
 ## Skills
 
-### 1. Protocol Writing (`protocol-writing.md`)
+### 1. Protocol Writing (`protocol-writing/`)
 Comprehensive guide for writing clinical research protocols for AI-based diagnostic studies, validation trials, and retrospective analyses.
 
 **Includes:**
@@ -13,7 +13,7 @@ Comprehensive guide for writing clinical research protocols for AI-based diagnos
 - Section length reference
 - Submission checklist
 
-### 2. Manuscript Writing - TRIPOD-AI (`manuscript-writing-tripod.md`)
+### 2. Manuscript Writing - TRIPOD-AI (`manuscript-writing-tripod/`)
 Guidelines for writing AI papers following TRIPOD+AI reporting standards.
 
 **Includes:**
@@ -22,7 +22,7 @@ Guidelines for writing AI papers following TRIPOD+AI reporting standards.
 - Visual presentation best practices
 - Transparency requirements
 
-### 3. Manuscript Review (`manuscript-review.md`)
+### 3. Manuscript Review (`manuscript-review/`)
 Section-by-section checklist for reviewing medical AI manuscripts.
 
 **Includes:**
@@ -31,22 +31,47 @@ Section-by-section checklist for reviewing medical AI manuscripts.
 - Numerical formatting rules
 - Forbidden patterns reference
 
-### 4. CIHR Grant Writing (`CIHR_RCT_WRITING.md`)
+### 4. CIHR Grant Writing (`cihr-grant-writing/`)
 Section-by-section guide for writing CIHR Project Grant applications.
 
 **Includes:**
 - Full section-by-section structure (Need, Design, Management, General Considerations)
 - Weighted scoring rubrics for each subsection
 - Fill-in-the-blank templates
-- Appendices for CIHR-specific language, study type adaptation, and common reviewer critiques
+- Reference appendices for CIHR-specific language, study type adaptation, and common reviewer critiques
+
+---
+
+## Directory Structure
+
+Each skill follows the [Agent Skills spec](https://agentskills.io/specification) format:
+
+```
+ai-writing-skills/
+├── protocol-writing/
+│   └── SKILL.md
+├── manuscript-writing-tripod/
+│   └── SKILL.md
+├── manuscript-review/
+│   └── SKILL.md
+├── cihr-grant-writing/
+│   ├── SKILL.md
+│   └── references/
+│       └── APPENDICES.md
+└── README.md
+```
+
+Each `SKILL.md` contains:
+- YAML frontmatter with `name` and `description`
+- Markdown body with full skill instructions
 
 ---
 
 ## Installation
 
-### Claude Code (Global Slash Commands)
+### Claude Code (Slash Commands)
 
-Install these as global slash commands available in every project on your machine.
+Install as global slash commands available in every project.
 
 **1. Create the commands directory:**
 
@@ -54,44 +79,16 @@ Install these as global slash commands available in every project on your machin
 mkdir -p ~/.claude/commands
 ```
 
-**2. Copy each skill file:**
+**2. Copy each skill's SKILL.md as a command file:**
 
 ```bash
-cp protocol-writing.md ~/.claude/commands/protocol-writing.md
-cp manuscript-writing-tripod.md ~/.claude/commands/manuscript-writing-tripod.md
-cp manuscript-review.md ~/.claude/commands/manuscript-review.md
-cp CIHR_RCT_WRITING.md ~/.claude/commands/cihr-grant-writing.md
+cp protocol-writing/SKILL.md ~/.claude/commands/protocol-writing.md
+cp manuscript-writing-tripod/SKILL.md ~/.claude/commands/manuscript-writing-tripod.md
+cp manuscript-review/SKILL.md ~/.claude/commands/manuscript-review.md
+cp cihr-grant-writing/SKILL.md ~/.claude/commands/cihr-grant-writing.md
 ```
 
-**3. Add frontmatter to each file** (gives Claude Code the description for slash command discovery):
-
-```bash
-sed -i '' '1i\
----\
-description: Guide for writing high-quality clinical research protocols for AI-based diagnostic studies, validation trials, and retrospective analyses\
----\
-' ~/.claude/commands/protocol-writing.md
-
-sed -i '' '1i\
----\
-description: Guide for writing AI paper results following TRIPOD+AI guidelines, covering participants, model development, performance metrics, and presentation best practices\
----\
-' ~/.claude/commands/manuscript-writing-tripod.md
-
-sed -i '' '1i\
----\
-description: Section-by-section checklist for reviewing medical AI manuscripts with success criteria for Background, Methods, Results, Tables, Discussion, and Abstract\
----\
-' ~/.claude/commands/manuscript-review.md
-
-sed -i '' '1i\
----\
-description: Section-by-section guide for writing CIHR Project Grant applications, covering RCTs, AI/technology, observational studies, with scoring rubrics and templates\
----\
-' ~/.claude/commands/cihr-grant-writing.md
-```
-
-**4. Use them anywhere in Claude Code:**
+**3. Use them anywhere in Claude Code:**
 
 ```
 /protocol-writing
@@ -100,9 +97,24 @@ description: Section-by-section guide for writing CIHR Project Grant application
 /cihr-grant-writing
 ```
 
-> **Note:** For project-specific commands (instead of global), place the files in `.claude/commands/` inside your project directory instead.
+> **Note:** For project-specific commands, place the files in `.claude/commands/` inside your project directory instead.
 
----
+### Claude Desktop / Claude.ai (Skills Upload)
+
+**1.** Package each skill as a ZIP file:
+
+```bash
+zip -r protocol-writing.zip protocol-writing/
+zip -r manuscript-writing-tripod.zip manuscript-writing-tripod/
+zip -r manuscript-review.zip manuscript-review/
+zip -r cihr-grant-writing.zip cihr-grant-writing/
+```
+
+**2.** In Claude, go to **Settings > Capabilities**.
+
+**3.** Upload each ZIP file as a Skill.
+
+**4.** Enable the skills and use them in conversations.
 
 ### Claude Desktop (Projects)
 
@@ -112,18 +124,12 @@ Claude Desktop uses **Projects** to store reusable instructions and knowledge.
 
 **2.** Create a new project (e.g., "Academic Writing Skills").
 
-**3.** Add each skill as project knowledge:
+**3.** Add each skill's `SKILL.md` as project knowledge:
 - Click **"Add content"** in the project knowledge section
-- Select **"Add text content"** (or drag and drop the `.md` file)
-- Paste the full contents of each `.md` file as a separate knowledge entry:
-  - `protocol-writing.md`
-  - `manuscript-writing-tripod.md`
-  - `manuscript-review.md`
-  - `CIHR_RCT_WRITING.md`
+- Select **"Add text content"** (or drag and drop the file)
+- Add each `SKILL.md` as a separate knowledge entry
 
 **4.** (Optional) Add project instructions:
-
-In the project's **"Instructions"** field, add:
 
 ```
 You are an academic writing assistant specializing in medical AI research.
@@ -152,14 +158,14 @@ For manuscript reviews, use the section-by-section checklist approach.
 ```
 You are an academic writing assistant specializing in medical AI research.
 You have access to four writing skills as knowledge files.
-When the user asks you to write or review a protocol, use "protocol-writing.md".
-When the user asks you to write a manuscript, use "manuscript-writing-tripod.md".
-When the user asks you to review a manuscript, use "manuscript-review.md".
-When the user asks you to write or review a CIHR grant, use "cihr-grant-writing.md".
+When the user asks you to write or review a protocol, use "protocol-writing/SKILL.md".
+When the user asks you to write a manuscript, use "manuscript-writing-tripod/SKILL.md".
+When the user asks you to review a manuscript, use "manuscript-review/SKILL.md".
+When the user asks you to write or review a CIHR grant, use "cihr-grant-writing/SKILL.md".
 Always follow the structure, style guidelines, scoring rubrics, and checklists provided in each skill.
 ```
 
-**3.** Upload the 4 `.md` files under the **"Knowledge"** section.
+**3.** Upload the 4 `SKILL.md` files under the **"Knowledge"** section.
 
 **4.** Save and use the GPT.
 
@@ -167,7 +173,7 @@ Always follow the structure, style guidelines, scoring rubrics, and checklists p
 
 **1.** In ChatGPT, create a new **Project** (left sidebar).
 
-**2.** Add each `.md` file to the project's **Files** section.
+**2.** Add each `SKILL.md` file to the project's **Files** section.
 
 **3.** Add project instructions (same as the system prompt above).
 
@@ -175,7 +181,7 @@ Always follow the structure, style guidelines, scoring rubrics, and checklists p
 
 #### Option C: Paste into a Single Conversation
 
-If you don't need persistence, simply paste the contents of the relevant `.md` file at the start of any ChatGPT conversation.
+If you don't need persistence, simply paste the contents of the relevant `SKILL.md` file at the start of any ChatGPT conversation.
 
 ---
 
@@ -192,27 +198,25 @@ If you don't need persistence, simply paste the contents of the relevant `.md` f
 
 **3.** Create one page per skill:
 
-|| Name | Category | Tags |
-||------|----------|------|
-|| Protocol Writing | Protocol | Diagnostic AI, Validation |
-|| TRIPOD-AI Manuscript Writing | Manuscript | TRIPOD-AI, Reporting |
-|| Manuscript Review | Review | Checklist, Quality Control |
-|| CIHR Grant Writing | Grant | CIHR, RCT, AI/Technology |
+| Name | Category | Tags |
+|------|----------|------|
+| Protocol Writing | Protocol | Diagnostic AI, Validation |
+| TRIPOD-AI Manuscript Writing | Manuscript | TRIPOD-AI, Reporting |
+| Manuscript Review | Review | Checklist, Quality Control |
+| CIHR Grant Writing | Grant | CIHR, RCT, AI/Technology |
 
-**4.** In each page, paste the full contents of the corresponding `.md` file. Notion will automatically render the markdown headings, tables, checklists, and code blocks.
+**4.** In each page, paste the full contents of the corresponding `SKILL.md` file.
 
 #### Option B: Single Page with Toggles
 
 **1.** Create a new Notion page called "AI Writing Skills".
 
-**2.** Add 4 toggle headings (type `/toggle heading` or `/toggle`):
+**2.** Add 4 toggle headings:
 
-- **Protocol Writing** -- paste contents of `protocol-writing.md`
-- **TRIPOD-AI Manuscript Writing** -- paste contents of `manuscript-writing-tripod.md`
-- **Manuscript Review** -- paste contents of `manuscript-review.md`
-- **CIHR Grant Writing** -- paste contents of `CIHR_RCT_WRITING.md`
-
-Each toggle collapses the full skill so you can expand only what you need.
+- **Protocol Writing** -- paste contents of `protocol-writing/SKILL.md`
+- **TRIPOD-AI Manuscript Writing** -- paste contents of `manuscript-writing-tripod/SKILL.md`
+- **Manuscript Review** -- paste contents of `manuscript-review/SKILL.md`
+- **CIHR Grant Writing** -- paste contents of `cihr-grant-writing/SKILL.md`
 
 #### Option C: Notion AI Integration
 
@@ -224,18 +228,44 @@ If you have **Notion AI** enabled:
 - Type `@Protocol Writing` to link the page
 - Then ask Notion AI to "write a protocol following the structure in @Protocol Writing"
 
-Notion AI will use the linked page as context.
+---
+
+## Packaging Skills as ZIP Files
+
+To distribute or share individual skills:
+
+```bash
+# Package each skill directory into a ZIP
+zip -r protocol-writing.zip protocol-writing/
+zip -r manuscript-writing-tripod.zip manuscript-writing-tripod/
+zip -r manuscript-review.zip manuscript-review/
+zip -r cihr-grant-writing.zip cihr-grant-writing/
+```
+
+Each ZIP should contain the skill folder as its root:
+
+```
+protocol-writing.zip
+  └── protocol-writing/
+      └── SKILL.md
+
+cihr-grant-writing.zip
+  └── cihr-grant-writing/
+      ├── SKILL.md
+      └── references/
+          └── APPENDICES.md
+```
 
 ---
 
 ## Quick Reference
 
-|| Skill | File | Claude Code | Claude Desktop | ChatGPT | Notion |
-||-------|------|-------------|----------------|---------|--------|
-|| Protocol Writing | `protocol-writing.md` | `/protocol-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
-|| TRIPOD-AI Manuscript | `manuscript-writing-tripod.md` | `/manuscript-writing-tripod` | Project knowledge | GPT knowledge file | Database page or toggle |
-|| Manuscript Review | `manuscript-review.md` | `/manuscript-review` | Project knowledge | GPT knowledge file | Database page or toggle |
-|| CIHR Grant Writing | `CIHR_RCT_WRITING.md` | `/cihr-grant-writing` | Project knowledge | GPT knowledge file | Database page or toggle |
+| Skill | Directory | Claude Code | Claude Skills | ChatGPT | Notion |
+|-------|-----------|-------------|---------------|---------|--------|
+| Protocol Writing | `protocol-writing/` | `/protocol-writing` | ZIP upload | GPT knowledge | Database page |
+| TRIPOD-AI Manuscript | `manuscript-writing-tripod/` | `/manuscript-writing-tripod` | ZIP upload | GPT knowledge | Database page |
+| Manuscript Review | `manuscript-review/` | `/manuscript-review` | ZIP upload | GPT knowledge | Database page |
+| CIHR Grant Writing | `cihr-grant-writing/` | `/cihr-grant-writing` | ZIP upload | GPT knowledge | Database page |
 
 ---
 
@@ -245,4 +275,4 @@ MIT License - HeartWise.AI
 
 ## Version
 
-v1.2.0 - Added Manuscript Review skill with section-by-section checklists
+v2.0.0 - Refactored to Agent Skills spec format (SKILL.md + directory structure + ZIP packaging)

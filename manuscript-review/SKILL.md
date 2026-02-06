@@ -1,10 +1,7 @@
-# How to write an original AI paper
-
-Created by: Robert Avram
-Created time: January 20, 2026 8:58 AM
-Category: Manuscript writing
-Last edited by: Robert Avram
-Last updated time: January 29, 2026 8:19 PM
+---
+name: manuscript-review
+description: Comprehensive checklist for reviewing academic medical AI manuscripts, covering Background, Methods, Results, Tables, Discussion, and Abstract sections with success criteria for each. Use when reviewing or evaluating a manuscript draft.
+---
 
 # Claude Code Skill: AI Manuscript Section Reviewer
 
@@ -106,7 +103,7 @@ FOR each paragraph in Results:
 
 **Success Checklist:**
 
-- [ ]  Leads with cohort dsecription
+- [ ]  Leads with cohort description
 - [ ]  **Table 1 = Baseline Characteristics** — Demographics, splits, clinical variables appear first
 - [ ]  **Results Mirror Methods Order** — 1:1 subsection correspondence maintained
 - [ ]  **No Interpretation Present** — Zero sentences explaining "why" or comparing to literature
@@ -156,7 +153,16 @@ FOR each table in manuscript:
 
 ### 5. Discussion Section
 
-**Purpose:** Interpret findings, compare to literature, acknowledge limitations, conclude.
+**Purpose:** Interpret findings, compare to literature, acknowledge limitations, and conclude. A good discussion section should answer **6 key questions**.
+
+**The 6 Questions Framework:**
+
+1. **What is different in your findings compared to previous research?**
+2. **What is similar in your findings compared to previous research?**
+3. **How do different sections of your results correlate?**
+4. **What are the implications of your findings for practitioners?**
+5. **What are the implications of your findings for researchers?**
+6. **What are the limitations or threats to the validity of your findings?**
 
 **Iteration Logic:**
 
@@ -164,8 +170,12 @@ FOR each table in manuscript:
 FOR each paragraph in Discussion:
   IDENTIFY paragraph type:
     - Main finding interpretation (MUST be paragraph 1)
-    - Literature comparison (MUST be paragraph 2)
-    - Limitations (MUST be present)
+    - Literature comparison: differences (Question 1)
+    - Literature comparison: similarities (Question 2)
+    - Results correlation/synthesis (Question 3)
+    - Clinical implications (Question 4)
+    - Research implications (Question 5)
+    - Limitations (Question 6, MUST be present)
     - Conclusion (MUST be final paragraph)
   EVALUATE against criteria below
   OUTPUT pass/fail for each criterion
@@ -173,9 +183,13 @@ FOR each paragraph in Discussion:
 
 **Success Checklist:**
 
-- [ ]  **First Line = Main Finding** — Opening sentence states the key interpretation. L**eads with Accomplishment -** First sentence states what was achieved
-- [ ]  **Paragraph 2 = Literature Comparison** — Second paragraph contextualizes with prior work
-- [ ]  **Limitations Clearly Present** — Dedicated section acknowledging study weaknesses
+- [ ]  **First Line = Main Finding** — Opening sentence states the key interpretation. **Leads with Accomplishment** — First sentence states what was achieved
+- [ ]  **Differences from Prior Work Addressed** — Explicitly states what is novel or contradictory vs. existing literature
+- [ ]  **Similarities to Prior Work Addressed** — Acknowledges concordant findings that reinforce validity
+- [ ]  **Results Sections Correlated** — Synthesizes how different analyses (e.g., subgroups, sensitivity analyses) relate to each other
+- [ ]  **Practitioner Implications Stated** — Clear guidance on how findings affect clinical practice or workflow
+- [ ]  **Researcher Implications Stated** — Identifies future research directions or methodological contributions
+- [ ]  **Limitations Clearly Present** — Dedicated section acknowledging study weaknesses and threats to validity
 - [ ]  **Final Paragraph = Conclusion** — Last paragraph summarizes implications
 - [ ]  **No New Results Introduced** — All data presented in Results section only
 
@@ -224,7 +238,7 @@ RUN full_review():
 
 ## Quick Reference: Forbidden Patterns
 
-| ❌ Don't Use | ✅ Use Instead |
+| Don't Use | Use Instead |
 | --- | --- |
 | F1-score | AUROC, AUPRC |
 | Recall | Sensitivity |
