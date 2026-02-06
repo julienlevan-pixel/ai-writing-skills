@@ -1,10 +1,7 @@
-# How to write an original AI paper
-
-Created by: Robert Avram
-Created time: January 20, 2026 8:58 AM
-Category: Manuscript writing
-Last edited by: Robert Avram
-Last updated time: January 29, 2026 8:19 PM
+---
+name: manuscript-review
+description: Comprehensive checklist for reviewing academic medical AI manuscripts, covering Background, Methods, Results, Tables, Discussion, and Abstract sections with success criteria for each. Use when reviewing or evaluating a manuscript draft.
+---
 
 # Claude Code Skill: AI Manuscript Section Reviewer
 
@@ -106,7 +103,7 @@ FOR each paragraph in Results:
 
 **Success Checklist:**
 
-- [ ]  Leads with cohort dsecription
+- [ ]  Leads with cohort description
 - [ ]  **Table 1 = Baseline Characteristics** — Demographics, splits, clinical variables appear first
 - [ ]  **Results Mirror Methods Order** — 1:1 subsection correspondence maintained
 - [ ]  **No Interpretation Present** — Zero sentences explaining "why" or comparing to literature
@@ -241,7 +238,7 @@ RUN full_review():
 
 ## Quick Reference: Forbidden Patterns
 
-| ❌ Don't Use | ✅ Use Instead |
+| Don't Use | Use Instead |
 | --- | --- |
 | F1-score | AUROC, AUPRC |
 | Recall | Sensitivity |

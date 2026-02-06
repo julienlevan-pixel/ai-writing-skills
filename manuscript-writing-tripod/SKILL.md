@@ -1,4 +1,9 @@
-# SKILL: How to Write an AI Paper (TRIPOD-AI Guidelines)
+---
+name: manuscript-writing-tripod
+description: Guide for writing AI paper results following TRIPOD+AI guidelines, covering participants, model development, performance metrics, and presentation best practices. Use when writing or structuring a medical AI manuscript results section.
+---
+
+# How to Write an AI Paper (TRIPOD-AI Guidelines)
 
 Based on the TRIPOD+AI guidelines, here are bullet point guidelines for presenting AI paper results to medical students and bioengineers:
 
@@ -37,7 +42,7 @@ If multiple datasets are merged, include separate branches for each dataset.
 - Include code repositories or supplementary implementation details
 - Specify any access restrictions or proprietary limitations
 
-### Performance Metrics (Item 23a) - Results and Methods 
+### Performance Metrics (Item 23a) - Results and Methods
 
 - In methods: describe the metrics you will report
 - In results: present these results
@@ -62,7 +67,7 @@ Abbreviations: AUROC = Area under the receiver operating characteristic curve; P
 - Report discrimination metrics with 95% confidence intervals
 - IN ALL CASES: include calibration metrics
 
-### Subgroup Analysis (Item 23a) - Table 3 
+### Subgroup Analysis (Item 23a) - Table 3
 
 - Stratify performance by key demographic groups:
   - Age categories
@@ -104,7 +109,7 @@ Abbreviations: AUROC = Area under the receiver operating characteristic curve; P
 - Show distribution plots of predicted probabilities by outcome status
 - Present confusion matrices at optimal thresholds
 
-### Clinical Context - Discussion 
+### Clinical Context - Discussion
 
 **For Regression Models:**
 - Interpret prediction accuracy in terms of clinical decision-making relevance
